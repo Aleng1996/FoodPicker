@@ -38,14 +38,14 @@ private enum Sheet: View, Identifiable{
 
 struct FoodListView: View {
     
-    @Environment(\.editMode) var editMode
+    @State private var editMode: EditMode = .inactive
     @State private var food = Food.examples
     @State private var selectedFoodID = Set<Food.ID>()
     
     
     @State private var sheet: Sheet?
     
-    var isEditing : Bool { editMode?.wrappedValue == .active }
+    var isEditing : Bool { editMode.isEditing }
     
     var body: some View {
         VStack(alignment: .leading){
@@ -72,19 +72,23 @@ struct FoodListView: View {
                                 sheet = .editFood($food)
                             }
                     }
-                }
+                }.listRowBackground(Color.clear)
             }
             .listStyle(.plain)
+            .background{
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.backgroundColor2)
+                    .ignoresSafeArea()
+            }
             .padding(.horizontal)
         }
         .background(.groupBackroundColor)
         .safeAreaInset(edge: .bottom, alignment: isEditing ? .center : .trailing){
             if isEditing{
                 removeButton
-            } else {
-                addButton
             }
         }
+        .environment(\.editMode, $editMode)
         .sheet(item: $sheet){ $0 }
     }
 }
@@ -154,6 +158,8 @@ private extension FoodListView{
             
             EditButton()
                 .buttonStyle(.bordered)
+            
+            addButton
         }.padding()
     }
     var addButton: some View{
@@ -161,8 +167,7 @@ private extension FoodListView{
             sheet = .newFood {food.append($0)}
         }label: {
             Image(systemName: "plus.circle.fill")
-                .font(.system(size: 50))
-                .padding()
+                .font(.system(size: 30))
                 .symbolRenderingMode(.palette) //symbol風格調整，.palette色盤風格
                 .foregroundStyle(.white, Color.accentColor.gradient) //前為底色，後為主要顏色
         }
@@ -177,7 +182,7 @@ private extension FoodListView{
                 .font(.system(size: 50))
                 .padding()
                 .foregroundStyle(Color.red)
-        }
+        }.padding(.bottom)
     }
 }
 

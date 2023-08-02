@@ -11,7 +11,7 @@ import SwiftUI
 struct FoodPickerApp: App {
     var body: some Scene {
         WindowGroup {
-            FoodListView()
+            HomeScreen()
         }
     }
 }

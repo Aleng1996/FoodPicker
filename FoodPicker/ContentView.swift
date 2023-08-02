@@ -15,28 +15,30 @@ struct ContentView: View {
     let food = Food.examples
     
     var body: some View {
-        ScrollView{
-            VStack(spacing: 30) {
-                foodImage
-                
-                Text("今天吃什麼？").bold()
-                
-                selectedFoodInfoView
-                
-                Spacer().layoutPriority(1)
-                
-                selectedFoodInfoButton
-                
-                cancelButton
-                
-            }
-            .padding()
-            .frame(maxWidth: .infinity,minHeight: UIScreen.main.bounds.height - 100)
-            .font(.title)
-            .mainButtonStyle()
-            .animation(.FPSpring, value: shouldShowInfo)
-            .animation(.FPEase, value: selectedFood)
-        }.background(.backgroundColor2)
+        GeometryReader{ proxy in
+            ScrollView{
+                VStack(spacing: 30) {
+                    foodImage
+                    
+                    Text("今天吃什麼？").bold()
+                    
+                    selectedFoodInfoView
+                    
+                    Spacer().layoutPriority(1)
+                    
+                    selectedFoodInfoButton
+                    
+                    cancelButton
+                    
+                }
+                .padding()
+                .frame(maxWidth: .infinity,minHeight: proxy.size.height)
+                .font(.title)
+                .mainButtonStyle()
+                .animation(.FPSpring, value: shouldShowInfo)
+                .animation(.FPEase, value: selectedFood)
+            }.background(.backgroundColor2)
+        }
     }
 }
 // MARK: - Subviews

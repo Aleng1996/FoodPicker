@@ -28,6 +28,7 @@ extension ShapeStyle where Self == Color{
     static var backgroundColor: Color {Color(.systemBackground)}
     static var backgroundColor2: Color {Color(.secondarySystemBackground)}
     static var groupBackroundColor: Color {Color(.systemGroupedBackground)}
+    static var groupBackroundColor2: Color {Color(.secondarySystemGroupedBackground)}
 }
 
 extension AnyTransition{

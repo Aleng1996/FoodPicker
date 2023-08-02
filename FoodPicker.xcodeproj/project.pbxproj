@@ -11,6 +11,7 @@
 		97255D5F2A376AB500B463A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97255D5E2A376AB500B463A0 /* ContentView.swift */; };
 		97255D612A376AB700B463A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97255D602A376AB700B463A0 /* Assets.xcassets */; };
 		979DDE842A74C59D00A4E8A1 /* FoodForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979DDE832A74C59C00A4E8A1 /* FoodForm.swift */; };
+		979DDE862A77E8BF00A4E8A1 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979DDE852A77E8BF00A4E8A1 /* HomeScreen.swift */; };
 		97BDC2512A64CFA100E8DC15 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 97BDC2502A64CFA100E8DC15 /* Preview Content */; };
 		97BDC2772A64DB1D00E8DC15 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BDC2762A64DB1D00E8DC15 /* Food.swift */; };
 		97BDC2792A663BCD00E8DC15 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BDC2782A663BCD00E8DC15 /* Extension.swift */; };
@@ -23,6 +24,7 @@
 		97255D5E2A376AB500B463A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97255D602A376AB700B463A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		979DDE832A74C59C00A4E8A1 /* FoodForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodForm.swift; sourceTree = "<group>"; };
+		979DDE852A77E8BF00A4E8A1 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		97BDC2502A64CFA100E8DC15 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
 		97BDC2762A64DB1D00E8DC15 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		97BDC2782A663BCD00E8DC15 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				97BDC2502A64CFA100E8DC15 /* Preview Content */,
 				97255D5C2A376AB500B463A0 /* FoodPickerApp.swift */,
+				979DDE852A77E8BF00A4E8A1 /* HomeScreen.swift */,
 				97255D5E2A376AB500B463A0 /* ContentView.swift */,
 				97BDC2782A663BCD00E8DC15 /* Extension.swift */,
 				97BDC2762A64DB1D00E8DC15 /* Food.swift */,
@@ -143,6 +146,7 @@
 			files = (
 				97BDC27B2A6A147000E8DC15 /* FoodListView.swift in Sources */,
 				97255D5F2A376AB500B463A0 /* ContentView.swift in Sources */,
+				979DDE862A77E8BF00A4E8A1 /* HomeScreen.swift in Sources */,
 				97BDC2772A64DB1D00E8DC15 /* Food.swift in Sources */,
 				97255D5D2A376AB500B463A0 /* FoodPickerApp.swift in Sources */,
 				97BDC2792A663BCD00E8DC15 /* Extension.swift in Sources */,
