@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension HomeScreen{
-    enum Tab: View, CaseIterable{
-        case picker, list
+    enum Tab: String, View, CaseIterable{
+        case picker, list, settings
         
         var body: some View{
             content.tabItem{ tabLable.labelStyle(.iconOnly) }
@@ -20,6 +20,7 @@ extension HomeScreen{
             switch self{
             case .picker: ContentView()
             case .list: FoodListView()
+            case .settings: SettingsScreen()
             }
         }
         
@@ -29,6 +30,8 @@ extension HomeScreen{
                 return Label("Home", systemImage: "house")
             case .list:
                 return Label("List", systemImage: "list.bullet")
+            case .settings:
+                return Label("Setting", systemImage: "gear")
             }
         }
         
@@ -37,12 +40,17 @@ extension HomeScreen{
 
 
 struct HomeScreen: View {
-    
-    @State var tab: Tab = .list
+    @AppStorage(.shouldUseDarkMode) var shouldUseDarkMode = false
+    @State var tab: Tab = {
+        let rawValue = UserDefaults.standard.string(forKey: UserDefaults.Key.startTab.rawValue) ?? ""
+        return Tab(rawValue: rawValue) ?? .picker
+    }()
     
     var body: some View {
-        TabView(selection: $tab) {
-            ForEach(Tab.allCases,  id: \.self){$0}
+        NavigationStack{
+            TabView(selection: $tab) {
+                ForEach(Tab.allCases,  id: \.self){$0}
+            }.preferredColorScheme(shouldUseDarkMode ? .dark : .light)
         }
     }
 }

@@ -125,7 +125,10 @@ private extension FoodListView{
                 }
                 .font(.title3)
                 .padding()
+                
             }
+            .maxWidth()
+            .background(.groupBackroundColor2)
             .overlay{
                 GeometryReader { proxy in
                     Color.clear.preference(key: FoodDetailSheetHeightKey.self, value: proxy.size.height)
@@ -145,6 +148,7 @@ private extension FoodListView{
                 Text(value).gridCellAnchor(.trailing)
             }
         }
+        
     }
 }
 

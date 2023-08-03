@@ -40,3 +40,39 @@ extension AnyTransition{
     
     static let moveUpWithOpacity = AnyTransition.move(edge: .top).combined(with: .opacity)
 }
+
+extension View{
+    func push(to alignment: TextAlignment) -> some View {
+        switch alignment {
+        case .leading:
+            return frame(maxWidth: .infinity, alignment: .leading)
+        case .center:
+            return frame(maxWidth: .infinity, alignment: .center)
+        case .trailing:
+            return frame(maxWidth: .infinity, alignment: .trailing)
+        }
+    }
+    
+    
+    func maxWidth() -> some View {
+        push(to: .center)
+    }
+}
+
+extension AppStorage{
+    init(wrappedValue: Value, _ key: UserDefaults.Key, store: UserDefaults? = nil) where Value == Bool {
+        self.init(wrappedValue: wrappedValue, key.rawValue, store: store)
+    }
+    init(wrappedValue: Value, _ key: UserDefaults.Key, store: UserDefaults? = nil) where Value: RawRepresentable, Value.RawValue == String {
+        self.init(wrappedValue: wrappedValue, key.rawValue, store: store)
+    }
+}
+
+extension UserDefaults{
+    enum Key: String{
+        case shouldUseDarkMode
+        case unit
+        case startTab
+        case foodList
+    }
+}
